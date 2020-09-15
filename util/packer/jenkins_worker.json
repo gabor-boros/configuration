@@ -1,4 +1,4 @@
-{
+G{
   "variables": {
     "aws_access_key": "{{env `AWS_ACCESS_KEY_ID`}}",
     "aws_secret_key": "{{env `AWS_SECRET_ACCESS_KEY`}}",
@@ -50,6 +50,7 @@
     "type": "shell",
     "inline": ["cd {{user `playbook_remote_dir`}}",
       "export CONFIGURATION_VERSION='{{user `remote_branch`}}'",
+      "export LC_CTYPE=en_US.UTF-8",
       "sudo bash ./stop-automatic-updates.sh",
       "sudo bash ./ansible-bootstrap.sh"
     ]
